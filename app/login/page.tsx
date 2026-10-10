@@ -169,6 +169,10 @@ export default function LoginPage() {
           <CommitSenseShield size={32} />
           <span style={{ fontSize: 20, fontWeight: 700, color: "#ffffff", letterSpacing: "-0.4px" }}>
             CommitSense
+          </span>
+        </div>
+
+        {/* Nav Links + Sun Theme Toggle */}
         <div className="flex items-center gap-8">
           <a
             href="#features"
@@ -465,8 +469,7 @@ export default function LoginPage() {
               }}
             >
               CommitSense
-
-            {/* Subtitle */}
+            </h2>
             <p
               style={{
                 fontSize: 13.5,
