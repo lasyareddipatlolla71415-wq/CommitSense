@@ -1,0 +1,232 @@
+@import "tailwindcss";
+
+/* ── Theme tokens ─────────────────────────────────────────────────── */
+:root {
+  --bg:          #ffffff;
+  --bg-subtle:   #f5f5f5;
+  --bg-muted:    #ebebeb;
+  --border:      #e2e2e2;
+  --border-strong: #c8c8c8;
+  --text:        #111111;
+  --text-muted:  #555555;
+  --text-faint:  #999999;
+  --accent:      #5b4cf5;
+  --accent-hover:#4a3de0;
+  --accent-subtle: #ede9ff;
+  --accent-text: #5b4cf5;
+  --success:     #16a34a;
+  --success-bg:  #f0fdf4;
+  --success-border: #bbf7d0;
+  --danger:      #dc2626;
+  --danger-bg:   #fef2f2;
+  --danger-border: #fecaca;
+  --warn:        #d97706;
+  --warn-bg:     #fffbeb;
+  --warn-border: #fde68a;
+  --info:        #2563eb;
+  --info-bg:     #eff6ff;
+  --info-border: #bfdbfe;
+  --card:        #ffffff;
+  --card-hover:  #fafafa;
+  --sidebar-bg:  #fafafa;
+  --nav-bg:      #ffffff;
+  --shadow:      0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md:   0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.dark {
+  --bg:          #0f0f0f;
+  --bg-subtle:   #171717;
+  --bg-muted:    #1f1f1f;
+  --border:      #2a2a2a;
+  --border-strong: #3a3a3a;
+  --text:        #f0f0f0;
+  --text-muted:  #a0a0a0;
+  --text-faint:  #606060;
+  --accent:      #7c6af7;
+  --accent-hover:#8f7ef9;
+  --accent-subtle: #1e1a3a;
+  --accent-text: #a89cf8;
+  --success:     #4ade80;
+  --success-bg:  #052e16;
+  --success-border: #166534;
+  --danger:      #f87171;
+  --danger-bg:   #1c0a0a;
+  --danger-border: #7f1d1d;
+  --warn:        #fbbf24;
+  --warn-bg:     #1c1200;
+  --warn-border: #78350f;
+  --info:        #60a5fa;
+  --info-bg:     #0c1a2e;
+  --info-border: #1e3a5f;
+  --card:        #171717;
+  --card-hover:  #1f1f1f;
+  --sidebar-bg:  #111111;
+  --nav-bg:      #0f0f0f;
+  --shadow:      0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md:   0 4px 6px rgba(0,0,0,0.5), 0 2px 4px rgba(0,0,0,0.4);
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ── Base ─────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* ── Card ─────────────────────────────────────────────────────────── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.card-hover {
+  transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.card-hover:hover {
+  background: var(--card-hover);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Status badges ────────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  border: 1px solid;
+}
+.badge-success { color: var(--success); background: var(--success-bg); border-color: var(--success-border); }
+.badge-danger  { color: var(--danger);  background: var(--danger-bg);  border-color: var(--danger-border); }
+.badge-warn    { color: var(--warn);    background: var(--warn-bg);    border-color: var(--warn-border); }
+.badge-info    { color: var(--info);    background: var(--info-bg);    border-color: var(--info-border); }
+.badge-accent  { color: var(--accent-text); background: var(--accent-subtle); border-color: var(--accent); }
+.badge-neutral { color: var(--text-muted); background: var(--bg-subtle); border-color: var(--border); }
+
+/* ── Inputs ───────────────────────────────────────────────────────── */
+.input {
+  width: 100%;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.input::placeholder { color: var(--text-faint); }
+.input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+
+/* ── Buttons ──────────────────────────────────────────────────────── */
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+.btn-primary:hover:not(:disabled) { background: var(--accent-hover); }
+.btn-primary:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.btn-secondary {
+  background: var(--bg-subtle);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.btn-secondary:hover:not(:disabled) {
+  background: var(--bg-muted);
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+.btn-secondary:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* ── Divider ──────────────────────────────────────────────────────── */
+.divider { border: none; border-top: 1px solid var(--border); }
+
+/* ── Shimmer skeleton ─────────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, var(--bg-subtle) 25%, var(--bg-muted) 50%, var(--bg-subtle) 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.4s ease infinite;
+  border-radius: 8px;
+}
+
+/* ── Fade in ──────────────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeInUp 0.25s ease forwards; }
+
+/* ── Progress bar ─────────────────────────────────────────────────── */
+.progress-bar {
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--bg-muted);
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  border-radius: 9999px;
+  background: var(--accent);
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── React Flow overrides ─────────────────────────────────────────── */
+.react-flow__controls {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+  box-shadow: var(--shadow) !important;
+}
+.react-flow__controls-button {
+  background: transparent !important;
+  color: var(--text-muted) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+.react-flow__controls-button:hover {
+  background: var(--bg-subtle) !important;
+  color: var(--text) !important;
+}
+.react-flow__controls-button svg { fill: currentColor !important; }
+.react-flow__controls-button:last-child { border-bottom: none !important; }
+
+/* ── Scrollbar ────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-faint); }
