@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 
-// SVG Brand Shield matching ChangeGuard
-const ChangeGuardShield = ({ size = 28 }: { size?: number }) => (
+// SVG Brand Shield matching CommitSense
+const CommitSenseShield = ({ size = 28 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="shieldLeftGrad" x1="12" y1="12" x2="32" y2="56" gradientUnits="userSpaceOnUse">
@@ -166,13 +166,9 @@ export default function LoginPage() {
       >
         {/* Brand */}
         <div className="flex items-center gap-3 cursor-pointer" onClick={() => router.push("/")}>
-          <ChangeGuardShield size={32} />
+          <CommitSenseShield size={32} />
           <span style={{ fontSize: 20, fontWeight: 700, color: "#ffffff", letterSpacing: "-0.4px" }}>
-            ChangeGuard
-          </span>
-        </div>
-
-        {/* Nav Links + Sun Theme Toggle */}
+            CommitSense
         <div className="flex items-center gap-8">
           <a
             href="#features"
@@ -390,7 +386,7 @@ export default function LoginPage() {
             >
               <Image
                 src="/hero-scene.png"
-                alt="ChangeGuard Analysis Dashboard"
+                alt="CommitSense Analysis Dashboard"
                 width={620}
                 height={291}
                 priority
@@ -455,7 +451,7 @@ export default function LoginPage() {
           >
             {/* Shield Logo */}
             <div style={{ marginBottom: 12 }}>
-              <ChangeGuardShield size={46} />
+              <CommitSenseShield size={46} />
             </div>
 
             {/* Brand Title */}
@@ -468,8 +464,7 @@ export default function LoginPage() {
                 margin: 0,
               }}
             >
-              ChangeGuard
-            </h2>
+              CommitSense
 
             {/* Subtitle */}
             <p

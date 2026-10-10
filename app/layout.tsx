@@ -9,7 +9,7 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "ChangeGuard - Safer Changes. Smarter Development.",
+  title: "CommitSense - Safer Changes. Smarter Development.",
   description: "AI-powered insights to help you understand, debug, and safely modify any software project.",
 };
 
